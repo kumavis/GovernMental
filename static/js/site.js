@@ -1,5 +1,8 @@
 $(document).ready(function() {
-  window.web3 = new Web3();
+
+  if (typeof web3 === 'undefined') {
+    window.web3 = new Web3();
+  }
 
   /* state */
   var updateInterval;
