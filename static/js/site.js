@@ -76,7 +76,7 @@ $(document).ready(function() {
       }
       else {
         var oldJackpot = jackpot;
-        jackpot = parseInt(web3.fromWei(result));
+        jackpot = parseInt(web3.fromWei(result, "Ether"));
         if (oldJackpot != jackpot) {
           $('#jackpot').countTo({
             from: oldJackpot,
@@ -84,7 +84,7 @@ $(document).ready(function() {
             speed: 1000,
             refreshInterval: 50,
             formatter: function (value) {
-              return parseInt(value).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+              return Math.ceil(value).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
             }
           });
         }
